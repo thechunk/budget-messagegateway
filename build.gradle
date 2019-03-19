@@ -10,11 +10,13 @@ group 'com.rcheung.budget'
 version '1.0-SNAPSHOT'
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation 'com.rcheung.budget:common:1.0-SNAPSHOT'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     implementation 'org.springframework.kafka:spring-kafka:2.2.4.RELEASE'
     testImplementation 'org.springframework.kafka:spring-kafka-test:2.2.4.RELEASE'
     testImplementation 'org.assertj:assertj-core'
