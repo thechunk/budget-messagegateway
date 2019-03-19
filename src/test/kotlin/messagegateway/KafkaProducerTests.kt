@@ -1,7 +1,8 @@
 package messagegateway
 
-import common.Amount
-import common.BudgetRecord
+import common.constants.Kafka
+import common.entities.Amount
+import common.entities.BudgetRecord
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.serialization.ByteArrayDeserializer
@@ -24,7 +25,7 @@ import java.util.*
 
 @ExtendWith(SpringExtension::class)
 @DirtiesContext
-@EmbeddedKafka(topics = [Constants.KAFKA_RECORDS_TOPIC])
+@EmbeddedKafka(topics = [Kafka.RECORDS_TOPIC])
 class KafkaProducerTests {
     @Suppress("SpringJavaAutowiredMembersInspection")
     @Autowired
@@ -56,7 +57,7 @@ class KafkaProducerTests {
 
         tpl.flush()
 
-        val records = KafkaTestUtils.getRecords(consumer).records(Constants.KAFKA_RECORDS_TOPIC)
+        val records = KafkaTestUtils.getRecords(consumer).records(Kafka.RECORDS_TOPIC)
         assert(records.count() == 1)
         val o = SerializationUtils.deserialize(records.asIterable().first().value()) as BudgetRecord
         assert(o.description == "desc")
