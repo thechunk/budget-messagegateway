@@ -33,7 +33,7 @@ class KafkaProducerTests {
 
     @Test
     fun `Send message`() {
-        val consumerProps = KafkaTestUtils.consumerProps("consumer", "false", broker)
+        val consumerProps = KafkaTestUtils.consumerProps("group_id", "false", broker)
         consumerProps[ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG] = ByteArrayDeserializer::class.java
         val consumer = DefaultKafkaConsumerFactory<String, ByteArray>(consumerProps).createConsumer()
         broker!!.consumeFromAllEmbeddedTopics(consumer)

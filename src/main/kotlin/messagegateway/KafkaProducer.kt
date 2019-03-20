@@ -9,6 +9,7 @@ import java.io.Serializable
 @Service
 class KafkaProducer(val kafkaTemplate: KafkaTemplate<String, ByteArray>) : Producer {
     override fun sendMessage(message: Serializable) {
-        kafkaTemplate.send(Kafka.RECORDS_TOPIC, SerializationUtils.serialize(message))
+        kafkaTemplate.send(Kafka.RECORDS_TOPIC, "key", SerializationUtils.serialize(message))
+        kafkaTemplate.flush()
     }
 }
