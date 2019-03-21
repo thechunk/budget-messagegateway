@@ -1,5 +1,6 @@
 package messagegateway
 
+import common.constants.Kafka
 import common.entities.Amount
 import common.entities.BudgetRecord
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
@@ -16,7 +17,7 @@ class MessageGatewayApplication
 
 fun main(args: Array<String>) {
     val ctx = runApplication<MessageGatewayApplication>(*args)
-    val producer = ctx.getBean(KafkaProducer::class.java)
+    val producer = ctx.getBean(RecordKafkaProducer::class.java)
 
     var i = 0
     while (true) {
@@ -30,7 +31,7 @@ fun main(args: Array<String>) {
             "groceries"
         )
 
-        producer.sendMessage(record)
+        producer.sendMessage(Kafka.RECORDS_TOPIC, message=SerializationUtils.serialize(record)!!)
 
         i++
         Thread.sleep(500)
