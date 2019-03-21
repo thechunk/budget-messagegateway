@@ -1,3 +1,0 @@
-package messagegateway
-
-class MessageRequest

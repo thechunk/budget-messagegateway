@@ -17,23 +17,23 @@ class MessageGatewayApplication
 
 fun main(args: Array<String>) {
     val ctx = runApplication<MessageGatewayApplication>(*args)
-    val producer = ctx.getBean(RecordKafkaProducer::class.java)
-
-    var i = 0
-    while (true) {
-        val amount = Amount(
-            BigDecimal(1.20).setScale(2, RoundingMode.HALF_EVEN),
-            Currency.getInstance("HKD"))
-        val record = BudgetRecord(
-            "desc $i",
-            amount,
-            "credit",
-            "groceries"
-        )
-
-        producer.sendMessage(Kafka.RECORDS_TOPIC, message=SerializationUtils.serialize(record)!!)
-
-        i++
-        Thread.sleep(500)
-    }
+//    val producer = ctx.getBean(RecordKafkaProducer::class.java)
+//
+//    var i = 0
+//    while (true) {
+//        val amount = Amount(
+//            BigDecimal(1.20).setScale(2, RoundingMode.HALF_EVEN),
+//            Currency.getInstance("HKD"))
+//        val record = BudgetRecord(
+//            "desc $i",
+//            amount,
+//            "credit",
+//            "groceries"
+//        )
+//
+//        producer.sendMessage(Kafka.RECORDS_TOPIC, message=SerializationUtils.serialize(record)!!)
+//
+//        i++
+//        Thread.sleep(500)
+//    }
 }

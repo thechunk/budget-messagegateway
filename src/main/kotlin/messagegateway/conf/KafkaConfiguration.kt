@@ -1,4 +1,4 @@
-package messagegateway
+package messagegateway.conf
 
 import common.constants.Kafka
 import org.springframework.context.annotation.Configuration

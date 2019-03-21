@@ -1,4 +1,4 @@
-package messagegateway
+package messagegateway.engine
 
 import common.engine.KafkaProducer
 import org.springframework.kafka.core.KafkaTemplate
