@@ -1,9 +1,10 @@
 package messagegateway
 
+import messagegateway.MessageGatewayApplication
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import common.entities.Amount
 import common.entities.BudgetRecord
-import messagegateway.entities.MessageRequest
+import common.entities.MessageRequest
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest

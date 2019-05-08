@@ -5,6 +5,10 @@ logging:
     common.engine: debug
     messagegateway: debug
 spring:
+  security:
+    oauth2:
+      resource:
+        user-info-url: http://localhost:8080/me
   kafka:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
