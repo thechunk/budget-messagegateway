@@ -14,7 +14,7 @@ import org.springframework.security.oauth2.provider.token.RemoteTokenServices
 @Configuration
 @EnableResourceServer
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-class AuthorizationClientConfiguration(val environment: Environment) : GlobalMethodSecurityConfiguration() {
+class ResourceServerConfig(val environment: Environment) : GlobalMethodSecurityConfiguration() {
     override fun createExpressionHandler(): MethodSecurityExpressionHandler = OAuth2MethodSecurityExpressionHandler()
 
     @Primary

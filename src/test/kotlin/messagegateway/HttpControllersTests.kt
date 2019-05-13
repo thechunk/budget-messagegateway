@@ -1,6 +1,5 @@
 package messagegateway
 
-import messagegateway.MessageGatewayApplication
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import common.entities.Amount
 import common.entities.BudgetRecord
